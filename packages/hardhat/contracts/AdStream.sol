@@ -17,4 +17,9 @@ contract AdStream {
         address superfluidHost,
         address cfaAddress,
         address acceptedToken
-    )
+    ) {
+        // Set up the Superfluid contracts
+        _superfluid = ISuperfluid(superfluidHost);
+        _cfa = IConstantFlowAgreementV1(cfaAddress);
+        _acceptedToken = ISuperToken(acceptedToken);
+    }
