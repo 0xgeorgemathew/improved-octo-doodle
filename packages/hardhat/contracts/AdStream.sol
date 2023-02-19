@@ -60,16 +60,4 @@ contract AdStream {
         // Convert the flow rate to an unsigned integer
         return uint256(flowRate);
     }
-
-    // Stop the ad stream
-    function stopStream() public {
-        // Delete the stream by setting the flow rate to 0
-        _cfa.deleteFlow(
-            _acceptedToken,
-            address(this),
-            _cfa.agreements(address(this)),
-            _adStreamId,
-            new bytes(0)
-        );
-    }
 }
