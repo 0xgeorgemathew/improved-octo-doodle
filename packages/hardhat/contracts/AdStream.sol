@@ -23,3 +23,8 @@ contract AdStream {
         _cfa = IConstantFlowAgreementV1(cfaAddress);
         _acceptedToken = ISuperToken(acceptedToken);
     }
+    // Create a new stream for the ad
+    function createStream(uint256 flowRate) public {
+        // Approve the token for the Superfluid contract
+        _acceptedToken.approve(address(_cfa), flowRate);
+
