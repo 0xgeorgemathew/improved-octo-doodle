@@ -10,3 +10,11 @@ contract AdStream {
     ISuperfluid private _superfluid;
     IConstantFlowAgreementV1 private _cfa;
     ISuperToken private _acceptedToken;
+ bytes32 private _adStreamId;
+
+    // Define the constructor
+    constructor(
+        address superfluidHost,
+        address cfaAddress,
+        address acceptedToken
+    )
