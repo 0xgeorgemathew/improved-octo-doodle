@@ -28,3 +28,19 @@ contract AdStream {
         // Approve the token for the Superfluid contract
         _acceptedToken.approve(address(_cfa), flowRate);
 
+    // Create a new stream with the specified flow rate
+        (, int96 superflowRate, , ) = _cfa.createFlow(
+            _acceptedToken,
+            address(this),
+            flowRate,
+            new bytes(0)
+        );
+
+        // Store the stream ID for later use
+        _adStreamId = _superfluid.getFlowID(
+            address(_acceptedToken),
+            address(this),
+            _cfa.agreements(address(this)),
+            _adStreamId
+        );
+    }
